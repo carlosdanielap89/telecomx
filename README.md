@@ -51,11 +51,26 @@ El proyecto está dividido en etapas modulares claras dentro del código:
 8. **Análisis de Ecosistemas (Correlación Extra):** Matriz de calor de Pearson y hallazgos invaluables sobre la tenencia múltiple de servicios (Efecto *Lock-in*).
 
 ## 🔑 Resultados Clave (Insights de Negocio)
-A través de las visualizaciones y cruces de este código, llegamos a las siguientes conclusiones críticas para la directiva:
-* **El Peligro del Inicio:** La curva de abandono (KDE) demuestra que la enorme mayoría de clientes se retira durante los **primeros 5 meses** de servicio.
-* **Problema del Mes-a-Mes:** Los contratos mensuales son la cuna absoluta del *Churn*. Los contratos de 1 a 2 años evitan la deserción casi al 100%.
-* **Fibra Óptica en Riesgo:** Sorprendentemente, los clientes de conexión costosa de Fibra son mucho más propensos a irse rápida y agresivamente que los usuarios del viejo ADSL regular.
-* **El Santo Grial (Efecto Lock-In):** Clientes con un solo servicio o servicios aislados tienen un ~40% de probabilidad de deserción. Cuando logramos vender al mismo cliente 6 o 7 servicios integrados (Teléfono, Internet, Seguridad, TV y Soporte Técnico), la probabilidad se desploma por debajo del 5%.
+A través de las visualizaciones y cruces de este código, llegamos a las siguientes conclusiones críticas apoyadas en los datos del `describe()` y los gráficos:
+
+- **Tasa de Evasión Global:** Se determinó que el **26.54%** de la cartera total de clientes ha cancelado el servicio. (Clases desbalanceadas).
+
+![Distribución de Evasión](./churn_distribution.png)
+
+- **El Peligro del Inicio (Tenure):** La curva de abandono (KDE) demuestra que la enorme mayoría de las fugas ocurren drásticamente durante los **primeros 5 meses** de servicio. El 75% de los clientes que cancelan, lo hacen antes del mes 30.
+- **Problema de Costos (Cargos Mensuales):** La densidad de cancelación sube brutalmente para los clientes con facturas entre **$70 y $100**. La mediana de cargo mensual de los que se van es muy superior a la de los que permanecen (~$80 vs ~$60).
+
+![Distribución Numérica vs Evasión](./churn_numeric_kde.png)
+
+- **El Tipo de Contrato:** Los contratos *Month-to-month* (mes a mes) son la cuna absoluta del *Churn*. Los contratos de 1 a 2 años reducen la deserción casi al 0%.
+- **Fibra Óptica en Riesgo:** Sorprendentemente, los clientes de conexión costosa de Fibra Óptica son mucho más propensos a irse rápida y agresivamente que los usuarios del viejo ADSL regular.
+
+![Evasión por Características Categóricas](./churn_categorical.png)
+
+- **El Santo Grial (Efecto Lock-In):** Clientes con un solo servicio o servicios aislados tienen una enorme probabilidad de deserción (rozando el **40%**). Sin embargo, cuando logramos crear un ecosistema vendiendo al mismo cliente **6, 7 o más servicios integrados** (Teléfono, Internet, Seguridad, TV y Soporte Técnico), la probabilidad de abandono se desploma a niveles casi nulos (**< 5%**).
+
+![Ecosistema de Servicios y Churn](./churn_ecosystem.png)
+
 
 ---
 *Este análisis explicatorio inicial marca la línea base perfecta requerida para alimentar, en un siguiente sprint técnico, modelos predictivos de Inteligencia Artificial (Ej: Random Forests o Regresión Logística) que detecten en tiempo real si un usuario está próximo a fugarse para retenerlo a tiempo.*
